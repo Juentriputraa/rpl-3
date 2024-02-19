@@ -1,29 +1,52 @@
-package  org.mavenexample;
+package org.mavenexample;
+
 public class Tabungan {
+
     public String pemilik;
     public double saldo;
-    public Tabungan (String pemilik, double saldo){
-        System.out.printy
+
+    public Tabungan(String pemilik, double saldo) {
+        System.out.println("Tabungan baru untuk " + pemilik + " dengan saldo " + saldo);
     }
-    void penarikan(double jumlah){
-        //penarikan tidak boleh negatif
-        double buf = saldo - jumlah;
-        if(jumlah > 0 && buf>-1 ){
-            saldo -= jumlah;
-        }
-    }
-    void penyetoran(double jumlah){
-        //saldo tabungan tidak boleh negatif
-        if(jumlah > 0){
-            saldo += jumlah;
+
+    public void penarikan(double jumlah) {
+        // Penarikan tidak boleh negatif
+        if (jumlah > 0) {
+            double buf = saldo - jumlah;
+            if (buf > -1) {
+                saldo -= jumlah;
+                System.out.println("Penarikan " + jumlah + " berhasil. Saldo Anda sekarang: " + saldo);
+            } else {
+                System.out.println("Penarikan gagal. Saldo Anda tidak cukup.");
+            }
+        } else {
+            System.out.println("Jumlah penarikan tidak boleh negatif.");
         }
     }
 
-    void transfer(double jumlah, Tabungan rektujuan ){
-        double buf = saldo - jumlah;
-        if(jumlah > 0 && buf>-1 ){
-            saldo -= jumlah;
-            rektujuan.saldo += jumlah;
+    public void penyetoran(double jumlah) {
+        // Saldo tabungan tidak boleh negatif
+        if (jumlah > 0) {
+            saldo += jumlah;
+            System.out.println("Penyetoran " + jumlah + " berhasil. Saldo Anda sekarang: " + saldo);
+        } else {
+            System.out.println("Jumlah penyetoran tidak boleh negatif.");
+        }
+    }
+
+    public void transfer(double jumlah, Tabungan rekTujuan) {
+        // Transfer tidak boleh negatif
+        if (jumlah > 0) {
+            double buf = saldo - jumlah;
+            if (buf > -1) {
+                saldo -= jumlah;
+                rekTujuan.saldo += jumlah;
+                System.out.println("Transfer " + jumlah + " ke " + rekTujuan.pemilik + " berhasil. Saldo Anda sekarang: " + saldo);
+            } else {
+                System.out.println("Transfer gagal. Saldo Anda tidak cukup.");
+            }
+        } else {
+            System.out.println("Jumlah transfer tidak boleh negatif.");
         }
     }
 }
