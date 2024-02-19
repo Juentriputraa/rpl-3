@@ -1,0 +1,29 @@
+package  org.mavenexample;
+public class Tabungan {
+    public String pemilik;
+    public double saldo;
+    public Tabungan (String pemilik, double saldo){
+        System.out.printy
+    }
+    void penarikan(double jumlah){
+        //penarikan tidak boleh negatif
+        double buf = saldo - jumlah;
+        if(jumlah > 0 && buf>-1 ){
+            saldo -= jumlah;
+        }
+    }
+    void penyetoran(double jumlah){
+        //saldo tabungan tidak boleh negatif
+        if(jumlah > 0){
+            saldo += jumlah;
+        }
+    }
+
+    void transfer(double jumlah, Tabungan rektujuan ){
+        double buf = saldo - jumlah;
+        if(jumlah > 0 && buf>-1 ){
+            saldo -= jumlah;
+            rektujuan.saldo += jumlah;
+        }
+    }
+}
