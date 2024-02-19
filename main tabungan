@@ -1,0 +1,24 @@
+package org.mavenexample;
+
+
+public class Main {
+    //entry poin
+    public static void main(String[] args) {
+        System.out.println("Aplikasi Tabungan Sederhana");
+        Tabungan tabungankvn = new Tabungan();
+        tabungankvn.pemilik = "Kevin";
+        tabungankvn.saldo = 1000000;
+
+        Tabungan tabunganlain = new Tabungan();
+        tabunganlain.pemilik = "oranglain";
+        tabunganlain.saldo = 10;
+        System.out.println("Saldo Tabungan Orang Lain " +tabunganlain.saldo);
+        tabunganlain.penyetoran(20);
+        System.out.println("Saldo Tabungan Orang Lain " + tabunganlain.saldo);
+        tabunganlain.penarikan(10);
+        System.out.println("Saldo Tabungan Orang Lain " +tabunganlain.saldo);
+
+        tabungankvn.transfer(100, tabunganlain);
+        System.out.println("Saldo Kevin " +tabungankvn.saldo);
+    }
+}
